@@ -1,37 +1,42 @@
 <template>
   <div class="inspection-container">
-    <h1 class="title">Inspection List</h1>
+    <h2 class="title">Inspeções</h2>
     <div class="card-grid">
       <div
-          v-for="inspection in inspections"
+          v-for="inspection in paginatedInspections"
           :key="inspection.id"
           class="card"
           @click="viewDetail(inspection.id)"
       >
         <div class="card-content">
           <div class="card-detail">
-            <strong>Container Number:</strong> {{ inspection.container }}
-          </div>
-          <div class="card-detail">
-            <strong>Container Status:</strong> {{ inspection.status }}
-          </div>
-          <div class="card-detail">
-            <strong>Container Inspector:</strong> {{ inspection.inspector }}
+            <strong>Contêiner:</strong> {{ inspection.container }}
           </div>
         </div>
       </div>
     </div>
+    <Pagination
+        :currentPage="currentPage"
+        :totalPages="totalPages"
+        @page-changed="changePage"
+    />
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import Pagination from './Pagination.vue'; // Certifique-se de importar o componente de paginação
 
 export default {
+  components: {
+    Pagination
+  },
   setup() {
     const inspections = ref([]);
+    const currentPage = ref(1);
+    const itemsPerPage = 9;
     const router = useRouter();
 
     const fetchInspections = async () => {
@@ -47,11 +52,29 @@ export default {
       router.push({ name: 'InspectionDetail', params: { id } });
     };
 
+    const paginatedInspections = computed(() => {
+      const start = (currentPage.value - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      return inspections.value.slice(start, end);
+    });
+
+    const totalPages = computed(() => {
+      return Math.ceil(inspections.value.length / itemsPerPage);
+    });
+
+    const changePage = (page) => {
+      currentPage.value = page;
+    };
+
     onMounted(fetchInspections);
 
     return {
       inspections,
-      viewDetail
+      currentPage,
+      totalPages,
+      paginatedInspections,
+      viewDetail,
+      changePage
     };
   }
 };
@@ -59,17 +82,16 @@ export default {
 
 <style scoped>
 .inspection-container {
-  background-color: var(--color-background-soft);
+  background-color: var(--color-background-soft); /* Usando variável de cor */
   padding: 20px;
-  border-radius: 8px;
-  max-width: 1200px;
-  margin: auto;
+  min-width: 1200px;
+  text-align: center;
 }
 
 .title {
-  color: var(--color-text-light);
+  color: var(--color-text-light); /* Usando variável de cor */
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-align: center;
 }
 
@@ -80,8 +102,8 @@ export default {
 }
 
 .card {
-  background-color: var(--color-background);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-background); /* Usando variável de cor */
+  border: 1px solid var(--color-border); /* Usando variável de cor */
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -90,20 +112,19 @@ export default {
 }
 
 .card:hover {
-  background-color: var(--color-background-mute);
-  border-color: var(--color-border-hover);
+  background-color: var(--color-background-mute); /* Usando variável de cor */
+  border-color: var(--color-border-hover); /* Usando variável de cor */
 }
 
 .card-content {
-  color: var(--color-text-muted);
+  color: var(--color-text-muted); /* Usando variável de cor */
 }
 
 .card-detail {
-  margin-bottom: 10px;
   font-size: 1rem;
 }
 
 .card-detail strong {
-  color: var(--color-text-light);
+  color: var(--color-text-light); /* Usando variável de cor */
 }
 </style>

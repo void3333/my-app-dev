@@ -1,21 +1,21 @@
 <template>
   <div class="inspection-detail">
-    <button @click="goBack" class="back-button">Back</button>
-    <h1 class="title">Inspection Detail</h1>
+    <button @click="goBack" class="back-button">Voltar</button>
+    <h1 class="title">Detalhes da inspeção</h1>
     <div v-if="inspection">
       <div class="detail-item">
-        <strong>Container Number:</strong> {{ inspection.container }}
+        <strong>Nº contêiner:</strong> {{ inspection.container }}
       </div>
       <div class="detail-item">
-        <strong>Container Status:</strong> {{ inspection.status }}
+        <strong>Status:</strong> {{ inspection.status }}
       </div>
       <div class="detail-item">
-        <strong>Container Inspector:</strong> {{ inspection.inspector }}
+        <strong>Inspetor:</strong> {{ inspection.inspector }}
       </div>
-      <!-- Add more details as needed -->
+      <!-- add more -->
     </div>
     <div v-else>
-      <p>Loading...</p>
+      <p>Carregando...</p>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
     };
 
     const goBack = () => {
-      router.push('/');
+      router.push('/inspections');
     };
 
     onMounted(fetchInspection);
@@ -62,11 +62,11 @@ export default {
 
 <style scoped>
 .inspection-detail {
+  margin-top: 0;
   background-color: var(--color-background-soft);
   padding: 20px;
-  border-radius: 8px;
-  max-width: 600px;
-  margin: auto;
+  min-width: 1200px;
+
 }
 
 .title {
