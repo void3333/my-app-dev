@@ -41,7 +41,7 @@ MOCK DATA:
 [
 {
 "id": 1,
-"containerNumber": "ABC123",
+"container": "ABC123",
 "date": "2024-07-01",
 "status": "Passed",
 "inspector": "John Doe"
