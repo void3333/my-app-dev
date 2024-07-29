@@ -4,7 +4,8 @@ This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and
+disable Vetur).
 
 ## Customize configuration
 
@@ -33,9 +34,12 @@ npm run build
 ```sh
 npm run lint
 ```
+
 MOCK API: https://mocki.io
 
-INSPECTIONS API EP: https://mocki.io/v1/8ab0ba61-158c-47e5-8ba6-a9aa2f1fccf5 
+INSPECTIONS API EP: https://mocki.io/v1/8ab0ba61-158c-47e5-8ba6-a9aa2f1fccf5
+
+MOCK 2 (main) : https://6689f9932c68eaf3211badbd.mockapi.io/api/void/inspections
 
 MOCK DATA:
 [
