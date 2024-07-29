@@ -10,6 +10,7 @@
 import {computed} from 'vue';
 import {useRoute} from 'vue-router';
 import Header from '../../src/components/Header.vue';
+import Filter from "@/components/Filter.vue";
 
 const route = useRoute();
 

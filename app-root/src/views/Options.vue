@@ -39,9 +39,7 @@ onMounted(() => {
 .options-container {
   background-color: var(--color-background-soft);
   padding: 20px;
-  border-radius: 8px;
-  max-width: 600px;
-  margin: auto;
+  min-width: 1200px;
   text-align: center;
 }
 

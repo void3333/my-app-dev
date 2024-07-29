@@ -1,6 +1,7 @@
 <template>
   <div class="inspection-container">
     <h2 class="title">Inspeções</h2>
+    <Filter @filter-changed="filterInspections" />
     <div class="card-grid">
       <div
           v-for="inspection in paginatedInspections"
@@ -23,68 +24,67 @@
   </div>
 </template>
 
-<script>
-import { ref, computed, onMounted } from 'vue';
+<script setup>
+import {ref, computed, onMounted} from 'vue';
 import axios from 'axios';
-import { useRouter } from 'vue-router';
-import Pagination from './Pagination.vue'; // Certifique-se de importar o componente de paginação
+import {useRouter} from 'vue-router';
+import Pagination from './Pagination.vue'; // Ensure correct import path
+import Filter from './Filter.vue'; // Ensure correct import path
 
-export default {
-  components: {
-    Pagination
-  },
-  setup() {
-    const inspections = ref([]);
-    const currentPage = ref(1);
-    const itemsPerPage = 9;
-    const router = useRouter();
+const inspections = ref([]);
+const currentPage = ref(1);
+const itemsPerPage = 9;
+const searchText = ref('');
+const router = useRouter();
 
-    const fetchInspections = async () => {
-      try {
-        const response = await axios.get('https://6689f9932c68eaf3211badbd.mockapi.io/api/void/inspections');
-        inspections.value = response.data;
-      } catch (error) {
-        console.error('Error fetching inspections:', error);
-      }
-    };
-
-    const viewDetail = (id) => {
-      router.push({ name: 'InspectionDetail', params: { id } });
-    };
-
-    const paginatedInspections = computed(() => {
-      const start = (currentPage.value - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      return inspections.value.slice(start, end);
-    });
-
-    const totalPages = computed(() => {
-      return Math.ceil(inspections.value.length / itemsPerPage);
-    });
-
-    const changePage = (page) => {
-      currentPage.value = page;
-    };
-
-    onMounted(fetchInspections);
-
-    return {
-      inspections,
-      currentPage,
-      totalPages,
-      paginatedInspections,
-      viewDetail,
-      changePage
-    };
+const fetchInspections = async () => {
+  try {
+    const response = await axios.get('https://6689f9932c68eaf3211badbd.mockapi.io/api/void/inspections');
+    inspections.value = response.data;
+    console.log(inspections.value); // Log the inspections to verify data structure
+  } catch (error) {
+    console.error('Error fetching inspections:', error);
   }
 };
+
+const filterInspections = (text) => {
+  searchText.value = text.toLowerCase();
+  currentPage.value = 1; // Reset to the first page after filtering
+};
+
+const viewDetail = (id) => {
+  router.push({name: 'InspectionDetail', params: {id}});
+};
+
+const filteredInspections = computed(() => {
+  return inspections.value.filter(inspection => {
+    // Convert inspection.container to a string before applying toLowerCase()
+    return (inspection.container ? String(inspection.container).toLowerCase().includes(searchText.value) : false);
+  });
+});
+
+const paginatedInspections = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  return filteredInspections.value.slice(start, end);
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(filteredInspections.value.length / itemsPerPage);
+});
+
+const changePage = (page) => {
+  currentPage.value = page;
+};
+
+onMounted(fetchInspections);
+
 </script>
 
 <style scoped>
 .inspection-container {
   background-color: var(--color-background-soft); /* Usando variável de cor */
   padding: 20px;
-  min-width: 1200px;
   text-align: center;
 }
 
@@ -92,7 +92,6 @@ export default {
   color: var(--color-text-light); /* Usando variável de cor */
   margin-bottom: 20px;
   font-size: 1.6rem;
-  text-align: center;
 }
 
 .card-grid {
