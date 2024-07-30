@@ -4,7 +4,7 @@ import Layout from '../components/Layout.vue'; // Layout que inclui o Header
 import InspectionList from '../components/InspectionList.vue';
 import InspectionDetail from '../components/InspectionDetail.vue';
 import Options from '../../src/views/Options.vue';
-import Dashboard from '../../src/views/Dashboard.vue'; // Corrigido para Dashboard.vue
+import Dashboard from '../../src/views/Dashboard.vue';
 
 const routes = [
     {

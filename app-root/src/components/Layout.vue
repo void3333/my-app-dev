@@ -7,17 +7,8 @@
 </template>
 
 <script setup>
-import {computed} from 'vue';
-import {useRoute} from 'vue-router';
-import Header from '../../src/components/Header.vue';
-import Filter from "@/components/Filter.vue";
+import Header from '@/components/Header.vue';
 
-const route = useRoute();
-
-const showHeader = computed(() => {
-  // O cabeçalho não deve aparecer na página de detalhes da inspeção
-  return route.name !== 'InspectionDetail';
-});
 </script>
 
 <style scoped>
@@ -26,4 +17,5 @@ const showHeader = computed(() => {
   flex-direction: column;
   min-height: 100vh;
 }
+
 </style>

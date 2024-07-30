@@ -3,7 +3,7 @@
     <input
         type="text"
         v-model="searchText"
-        placeholder="Procure um nº de contêiner..."
+        placeholder="Buscar..."
     />
   </div>
 </template>

@@ -28,8 +28,9 @@ onMounted(fetchInspectionsCount);
 .dashboard-container {
   background-color: var(--color-background-soft);
   padding: 20px;
-  max-width: 1200px;
+  max-width: 100vw;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
@@ -41,5 +42,6 @@ onMounted(fetchInspectionsCount);
 .inspections-count {
   font-size: 1.5rem;
   color: var(--color-text-muted);
+  margin-bottom: 3em;
 }
 </style>

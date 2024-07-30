@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "vue-filter": "^0.2.5"
   }
 }

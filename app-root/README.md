@@ -1,81 +1,80 @@
-# app-root
+# Sistema de Gerenciamento de Inspeção de Contêineres e Cargas
 
-This template should help get you started developing with Vue 3 in Vite.
+## Visão Geral
 
-## Recommended IDE Setup
+Este projeto é uma aplicação front-end para gerenciar inspeções de contêineres e cargas.
+Ele é construído usando Vue 3 e inclui funcionalidades como filtragem,
+paginação e pop-ups modais para detalhes das inspeções.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and
-disable Vetur).
+## Versão
 
-## Customize configuration
+Versão atual: **0.0.5**
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Funcionalidades
 
-## Project Setup
+- **Lista de Inspeções**: Exibe uma lista de inspeções buscadas de uma API.
+- **Filtro**: Permite filtrar inspeções por contêiner.
+- **Paginação**: Suporta a exibição paginada dos resultados das inspeções.
+- **Pop-up Modal**: Mostra informações detalhadas sobre uma inspeção em um pop-up modal.
+- **Responsividade**: Ajustes na exibição dos componentes para dispositivos móveis e tablets.
+- **Botão de Tema**: Alterna entre temas claro e escuro, com a preferência salva em cache.
+- **Botão de Voltar**: Adicionado à página de detalhes para facilitar a navegação.
+- **Novos Ícones**: Inclusão de ícones para navegação e ações, como setas e ícones de tema.
 
-```sh
-npm install
-```
+## Componentes
 
-### Compile and Hot-Reload for Development
+### Componentes Principais
 
-```sh
-npm run dev
-```
+1. **InspectionContainer.vue**
+   - Exibe a lista de inspeções.
+   - Integra funcionalidades de filtragem, paginação e pop-up modal.
+   - Atualizado para melhorar a responsividade e inclusão do botão de tema.
 
-### Compile and Minify for Production
+2. **Pagination.vue**
+   - Gerencia a lógica e a interface de paginação.
 
-```sh
-npm run build
-```
+3. **Filter.vue**
+   - Gerencia a lógica e a interface de filtragem.
 
-### Lint with [ESLint](https://eslint.org/)
+4. **Modal.vue**
+   - Exibe informações detalhadas sobre uma inspeção em um pop-up modal.
+   - Melhorado para responsividade e integração de novos ícones.
 
-```sh
-npm run lint
-```
+5. **InspectionDetail.vue**
+   - Exibe detalhes sobre uma inspeção específica.
+   - Adiciona um botão estilizado para retornar à lista de inspeções.
 
-MOCK API: https://mocki.io
+### Módulos Utilitários
 
-INSPECTIONS API EP: https://mocki.io/v1/8ab0ba61-158c-47e5-8ba6-a9aa2f1fccf5
+1. **pagination.js**
+   - Contém funções para gerenciar a lógica de paginação.
 
-MOCK 2 (main) : https://6689f9932c68eaf3211badbd.mockapi.io/api/void/inspections
+2. **filter.js**
+   - Contém funções para gerenciar a lógica de filtragem.
 
-MOCK DATA:
-[
-{
-"id": 1,
-"container": "ABC123",
-"date": "2024-07-01",
-"status": "Passed",
-"inspector": "John Doe"
-},
-{
-"id": 2,
-"containerNumber": "DEF456",
-"date": "2024-07-02",
-"status": "Failed",
-"inspector": "Jane Smith"
-},
-{
-"id": 3,
-"containerNumber": "GHI789",
-"date": "2024-07-03",
-"status": "Passed",
-"inspector": "Mike Johnson"
-},
-{
-"id": 4,
-"containerNumber": "JKL012",
-"date": "2024-07-04",
-"status": "Failed",
-"inspector": "Emily Davis"
-},
-{
-"id": 5,
-"containerNumber": "MNO345",
-"date": "2024-07-05",
-"status": "Pending",
-"inspector": "Chris Brown"
-}
-]
+## Novidades na Versão 0.5.0
+
+- **Responsividade**:
+   - **InspectionContainer.vue** e **InspectionDetail.vue** foram atualizados para melhorar a visualização em dispositivos móveis e tablets.
+   - Ajustes nos estilos para evitar overflow de texto e garantir que os cartões e detalhes se ajustem corretamente em telas menores.
+
+- **Botão de Voltar**:
+   - Adicionado à página de detalhes (`InspectionDetail.vue`), permitindo que o usuário retorne à lista de inspeções.
+
+- **Botão de Tema**:
+   - Implementado na aplicação para alternar entre temas claro e escuro. O estado do tema é salvo em cache para manter a preferência do usuário.
+
+- **Pop-up Modal**:
+   - Melhorias no design e responsividade do modal (`Modal.vue`), com ícones de modal ajustados para diferentes tamanhos de tela.
+
+- **Novos Ícones**:
+   - **faArrowLeft** e **faArrowRight**: Ícones de setas para navegação.
+   - **faArrowRightArrowLeft**: Ícone de setas bidirecionais.
+   - **faHouse**, **faUserSecret**, **faCog**, **faInfoCircle**: Ícones adicionados para navegação e ações.
+
+
+
+
+
+
+
