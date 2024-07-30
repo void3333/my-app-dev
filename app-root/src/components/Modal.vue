@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
 
 const props = defineProps({
   isVisible: Boolean
@@ -45,18 +44,4 @@ const closeModal = () => {
   position: relative;
 }
 
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--color-text); /* Using color variable */
-}
-
-.close-button:hover {
-  color: var(--color-text-hover); /* Using color variable */
-}
 </style>
