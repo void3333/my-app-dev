@@ -1,5 +1,5 @@
-
 :root {
+    /* Base Colors */
     --color-white: #ffffff;
     --color-white-soft: #f8f8f8;
     --color-white-mute: #f2f2f2;
@@ -11,16 +11,19 @@
     --color-indigo: #2c3e50;
     --color-indigo-light: #45647c;
 
+    /* Dividers and Borders */
     --color-divider-light-1: rgba(60, 60, 60, 0.29);
     --color-divider-light-2: rgba(60, 60, 60, 0.12);
     --color-divider-dark-1: rgba(84, 84, 84, 0.65);
     --color-divider-dark-2: rgba(84, 84, 84, 0.48);
 
+    /* Text Colors */
     --color-text-light: #989898;
     --color-text-muted: #666666;
     --color-text-dark: #ffffff;
     --color-text-dark-muted: rgba(235, 235, 235, 0.64);
 
+    /* Background Colors */
     --color-background: var(--color-white);
     --color-background-soft: var(--color-white-soft);
     --color-background-mute: var(--color-white-mute);
@@ -31,13 +34,14 @@
     --color-heading: var(--color-text-light);
     --color-text: var(--color-text-light);
 
+    /* Section Spacing */
     --section-gap: 160px;
 
-    --color-icon: var(--color-text); /* Cor padrão para ícones */
-
+    /* Icon Color */
+    --color-icon: var(--color-text); /* Standard color for icons */
 }
 
-/* Dark mode */
+/* Dark Mode */
 [data-theme='dark'] {
     --color-background: var(--color-black);
     --color-background-soft: var(--color-black-soft);
@@ -45,12 +49,11 @@
 
     --color-border: var(--color-divider-dark-2);
     --color-border-hover: var(--color-divider-dark-1);
-    --color-text-hover: var(--color-divider-dark-1);
 
     --color-heading: var(--color-text-dark);
     --color-text: var(--color-text-dark-muted);
 
-    --color-icon: var(--color-text-dark); /* Cor padrão para ícones escuros */
+    --color-icon: var(--color-text-dark); /* Standard color for icons in dark mode */
 }
 
 *,
@@ -62,26 +65,23 @@
 }
 
 body {
-    /*min-height: 100vh;*/
     color: var(--color-text);
     background: var(--color-background);
-    transition:
-            color 0.5s,
-            background-color 0.5s;
+    transition: color 0.5s,
+    background-color 0.5s;
     line-height: 1.6;
-    font-family:
-            Inter,
-            -apple-system,
-            BlinkMacSystemFont,
-            'Segoe UI',
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            'Fira Sans',
-            'Droid Sans',
-            'Helvetica Neue',
-            sans-serif;
+    font-family: Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
     font-size: 15px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;

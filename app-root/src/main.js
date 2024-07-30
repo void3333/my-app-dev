@@ -1,9 +1,9 @@
 import './assets/base.css'
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import {library} from '@fortawesome/fontawesome-svg-core'
 
 // Importar ícones
 import {
@@ -13,7 +13,8 @@ import {
     faCog,
     faInfoCircle,
     faArrowLeft,
-    faArrowRight
+    faArrowRight,
+    faImages
 } from '@fortawesome/free-solid-svg-icons'
 
 // Adiciona os ícones à biblioteca
@@ -24,7 +25,8 @@ library.add(
     faCog,
     faInfoCircle,
     faArrowLeft,
-    faArrowRight
+    faArrowRight,
+    faImages
 )
 
 const app = createApp(App)

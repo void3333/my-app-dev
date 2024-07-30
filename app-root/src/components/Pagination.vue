@@ -1,13 +1,17 @@
 <template>
   <div class="pagination">
-    <button @click="goToPage(currentPage - 1)" :disabled="currentPage <= 1">Anterior</button>
+    <button @click="goToPage(currentPage - 1)" :disabled="currentPage <= 1"><font-awesome-icon class="open-modal-button" :icon="['fas', 'arrow-left']"/></button>
     <span>Página {{ currentPage }} de {{ totalPages }}</span>
-    <button @click="goToPage(currentPage + 1)" :disabled="currentPage >= totalPages">Próximo</button>
+    <button @click="goToPage(currentPage + 1)" :disabled="currentPage >= totalPages">
+      <font-awesome-icon class="open-modal-button" :icon="['fas', 'arrow-right']"/></button>
   </div>
 </template>
 
 <script>
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+
 export default {
+  components: {FontAwesomeIcon},
   props: {
     currentPage: {
       type: Number,
@@ -54,6 +58,6 @@ button:disabled {
 }
 
 button:hover:not(:disabled) {
-  background-color: var(--color-black-soft); /* Usando variável de cor */
+  background-color: var(--color-indigo-light); /* Usando variável de cor */
 }
 </style>

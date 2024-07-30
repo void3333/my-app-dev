@@ -14,7 +14,7 @@
       </button>
       <h2>Selecionar Tema</h2>
       <button @click="toggleTheme" class="theme-toggle-button">
-        <font-awesome-icon :icon="themeIcon" />
+        <font-awesome-icon :icon="themeIcon"/>
         <span class="sr-only">Toggle Theme</span>
       </button>
     </div>
@@ -22,9 +22,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, computed } from 'vue';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import {ref, onMounted, watch, computed} from 'vue';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import {faSun, faMoon} from '@fortawesome/free-solid-svg-icons';
 
 const selectedTheme = ref('light'); // Default value to 'light' initially
 const initialLoad = ref(true); // Flag to track initial load
@@ -65,6 +65,7 @@ const toggleTheme = () => {
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .title {

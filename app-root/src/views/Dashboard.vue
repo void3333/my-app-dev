@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import {ref, onMounted} from 'vue';
 import axios from 'axios';
 
 const totalInspections = ref(0);
@@ -31,6 +31,7 @@ onMounted(fetchInspectionsCount);
   max-width: 100vw;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
 }
 
 .title {

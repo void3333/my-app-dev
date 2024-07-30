@@ -5,9 +5,15 @@
         <img src="@/assets/logo-nav.webp" alt="Logo">
       </div>
       <nav class="nav">
-        <router-link to="/">Dashboard</router-link>
-        <router-link to="/inspections">Inspeções</router-link>
-        <router-link to="/options">Opções</router-link>
+        <router-link to="/">
+          <font-awesome-icon class="open-modal-button" :icon="['fas', 'house']"/>
+        </router-link>
+        <router-link to="/inspections">
+          <font-awesome-icon class="open-modal-button" :icon="['fas', 'user-secret']"/>
+        </router-link>
+        <router-link to="/options">
+          <font-awesome-icon class="open-modal-button" :icon="['fas', 'cog']"/>
+        </router-link>
       </nav>
       <div class="hamburger" @click="toggleMenu">
         <span :class="{ 'open': menuOpen }"></span>
@@ -24,7 +30,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 const menuOpen = ref(false);
 
@@ -46,6 +53,7 @@ const toggleMenu = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  outline: solid 1px rgba(255, 255, 255, 0.39);
 }
 
 .header-content {

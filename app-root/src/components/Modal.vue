@@ -1,7 +1,6 @@
 <template>
-  <div class="modal-overlay" v-if="isVisible">
+  <div class="modal-overlay" v-if="isVisible" @click.self="closeModal">
     <div class="modal-content">
-      <button class="close-button" @click="closeModal">X</button>
       <slot></slot>
     </div>
   </div>
@@ -36,9 +35,9 @@ const closeModal = () => {
 }
 
 .modal-content {
-  background-color: var(--color-background); /* Usando variável de cor */
-  color: var(--color-text); /* Usando variável de cor */
-  border: 1px solid var(--color-border); /* Usando variável de cor */
+  background-color: var(--color-background); /* Using color variable */
+  color: var(--color-text); /* Using color variable */
+  border: 1px solid var(--color-border); /* Using color variable */
   border-radius: 8px;
   padding: 20px;
   width: 80%;
@@ -54,10 +53,10 @@ const closeModal = () => {
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: var(--color-text); /* Usando variável de cor */
+  color: var(--color-text); /* Using color variable */
 }
 
 .close-button:hover {
-  color: var(--color-text-hover); /* Usando variável de cor */
+  color: var(--color-text-hover); /* Using color variable */
 }
 </style>
